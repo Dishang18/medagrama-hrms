@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; 
+    color: green; 
+}
+
+header {
+    background-color: green; 
+    padding: 10px;
+    text-align: center;
+    color: #ffffff; 
+}
+
+section {
+   
+    text-align: center;
+    padding: 20px;
+}
+
+.login-container {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5%;
+}
+
+.login-option {
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid green; 
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-option:hover {
+    background-color: green;
+    color: #ffffff; 
+}
+
+footer {
+    background-color: green; 
+    color: #ffffff; 
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
