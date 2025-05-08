@@ -7,57 +7,86 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background: linear-gradient(to bottom, #4CAF50, #f2f2f2);
+            margin: 0;
+            padding: 0;
+            color: #333;
         }
         .header {
             background-color: #4CAF50;
             color: #ffffff;
             text-align: center;
+            padding: 15px 20px;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .home-button {
             position: absolute;
-            top: 20px;
+            top: 50%;
             left: 20px;
+            transform: translateY(-50%);
             color: #ffffff;
             text-decoration: none;
+            font-weight: bold;
+        }
+        .home-button:hover {
+            text-decoration: underline;
         }
         .container {
-            margin: 100px auto 20px auto; 
-            width: 80%;
+            margin: 40px auto;
+            width: 90%;
+            max-width: 1200px;
             background-color: #ffffff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
-
+        h2 {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
-
         th, td {
-            padding: 8px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
-
         th {
             background-color: #4CAF50;
-            color: white;
+            color: #ffffff;
+            font-size: 16px;
         }
-
+        td {
+            font-size: 14px;
+            color: #555;
+        }
         tr:hover {
+            background-color: #f9f9f9;
+        }
+        tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-
-        .footer {
+        .no-records {
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            color: #888;
+        }
+        footer {
             background-color: #4CAF50;
             color: #ffffff;
             text-align: center;
-            width: 100%;
+            padding: 10px 0;
             position: fixed;
             bottom: 0;
-            padding: 10px 0;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -111,7 +140,7 @@
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='8'>No records found</td></tr>";
+            echo "<tr><td colspan='8' class='no-records'>No records found</td></tr>";
         }
 
         $conn->close();
@@ -119,7 +148,7 @@
     </table>
 </div>
 
-<footer class="footer">
+<footer>
     <p>&copy; 2024 Medagrama - All rights reserved</p>
 </footer>
 </body>

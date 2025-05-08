@@ -33,25 +33,26 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Signup</title>
-</head>
-<body>
-
-<style type="text/css">
+	<title>Patient Signup</title>
+	<style type="text/css">
         body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-}
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #E3F2FD; /* Light sky blue background */
+            font-family: Arial, sans-serif;
+        }
 
-.header {
-            background-color: #4CAF50;
+        .header {
+            background-color: #0288D1; /* Sky blue header */
             color: #ffffff;
-            /* padding: 20px; */
             text-align: center;
             position: relative;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .home-button {
             position: absolute;
             top: 50%;
@@ -59,91 +60,106 @@ session_start();
             transform: translateY(-50%);
             color: #ffffff;
             text-decoration: none;
+            font-weight: bold;
         }
 
-#box {
-    background-color: white;
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-}
+        .home-button:hover {
+            text-decoration: underline;
+        }
 
-form {
-    text-align: center;
-}
+        #box {
+            background-color: #ffffff; /* White background for the form */
+            width: 350px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
 
-form div {
-    font-size: 16px; /* Adjusted font size */
-    margin: 10px;
-    color: #4CAF50;
-}
+        form {
+            text-align: center;
+        }
 
-input[type="text"],
-input[type="password"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        form div {
+            font-size: 18px; 
+            margin: 10px;
+            color: #0288D1; /* Sky blue text for headings */
+            font-weight: bold;
+        }
 
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        h3 {
+            color: #0288D1; /* Sky blue headings */
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
 
-a {
-    color: #4CAF50;
-    text-decoration: none;
-}
+        input[type="submit"] {
+            background-color: #0288D1; /* Sky blue button */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
 
-a:hover {
-    text-decoration: underline;
-}
+        input[type="submit"]:hover {
+            background-color: #0277BD; /* Darker sky blue on hover */
+        }
 
-footer {
-    text-align: center;
-    margin-top: auto;
-    /* padding:  ;  */
-    background-color: #4CAF50;
-    color: white;
-    font-size: 15px; /* Adjusted font size */
-}
+        a {
+            color: #0288D1; /* Sky blue links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 10px 0;
+            background-color: #0288D1; /* Sky blue footer */
+            color: white;
+            font-size: 14px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
 	</style>
+</head>
+<body>
 
-<div class="header">
-    <a href="medagrama.php" class="home-button">Home</a>
-    <h2>Patient Signup</h2>
-</div>  
-    <br>
-    <br>
-    <br>
-    <br>
-	<div id="box">
-		
-		<form method="post">
-			<div style="font-size: 20px;margin: 10px;color: white;">Signup</div>
-			<h3>Patient Name</h3>
-			<input id="text" type="text" name="patient_name"><br><br>
-			<h3>Password</h3>
-			<input id="text" type="password" name="password"><br><br>
+    <div class="header">
+        <a href="medagrama.php" class="home-button">Home</a>
+        <h2>Patient Signup</h2>
+    </div>  
 
-			<input id="button" type="submit" value="Signup"><br><br>
+    <div id="box">
+        <form method="post">
+            <div>Signup</div>
+            <h3>Patient Name</h3>
+            <input id="text" type="text" name="patient_name" placeholder="Enter your name"><br>
+            <h3>Password</h3>
+            <input id="text" type="password" name="password" placeholder="Enter your password"><br>
+            <input id="button" type="submit" value="Signup"><br><br>
+            <a href="plogin.php">Click to Login</a>
+        </form>
+    </div>
 
-			<a href="plogin.php">Click to Login</a><br><br>
-		</form>
-	</div>
-	<footer>
+    <footer>
         <p>&copy; 2024 Medagrama - All rights reserved</p>
     </footer>
 	

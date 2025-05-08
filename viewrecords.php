@@ -5,74 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Patient Records by Contact Number - Medagrama</title>
     <style>
+        /* General Styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background: linear-gradient(to bottom, #4CAF50, #f2f2f2);
+            color: #333;
         }
+
         .header {
             background-color: #4CAF50;
             color: #ffffff;
-            /* padding: 20px; */
             text-align: center;
+            padding: 15px 20px;
             position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        .home-button, .logout {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
         .home-button {
-            position: absolute;
-            top: 50%;
             left: 20px;
-            transform: translateY(-50%);
-            color: #ffffff;
-            text-decoration: none;
         }
+
         .logout {
-            position: absolute;
-            top: 50%;
             right: 20px;
-            transform: translateY(-50%);
-            color: #ffffff;
-            text-decoration: none;
         }
+
+        .home-button:hover, .logout:hover {
+            text-decoration: underline;
+        }
+
         .container {
-            margin: 20px auto;
-            width: 80%;
+            margin: 40px auto;
+            width: 90%;
+            max-width: 800px;
             background-color: #ffffff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
+
+        h2 {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
+
         th, td {
-            padding: 8px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+
         th {
             background-color: #4CAF50;
             color: white;
         }
-        tr:hover {
-            background-color: #f2f2f2;
+
+        td {
+            font-size: 14px;
+            color: #555;
         }
-        .footer {
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .no-records {
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            color: #888;
+        }
+
+        footer {
             background-color: #4CAF50;
             color: #ffffff;
             text-align: center;
-            width: 100%;
+            padding: 10px 0;
             position: fixed;
             bottom: 0;
-            padding: 10px 0;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
 <div class="header">
-<a href="dindex.php" class="home-button">Home</a>
-    <h1>View Patient Records</h1>
+    <a href="dindex.php" class="home-button">Home</a>
+    <h1>Medagrama - View Patient Records</h1>
     <a href="medagrama.php" class="logout">Logout</a>
 </div>
 
@@ -81,7 +158,7 @@
     <form action="#" method="POST">
         <div class="form-group">
             <label for="contact_no">Enter Contact Number:</label>
-            <input type="text" id="contact_no" name="contact_no" required>
+            <input type="text" id="contact_no" name="contact_no" placeholder="Enter patient contact number" required>
         </div>
         <div class="form-group">
             <button type="submit">View Records</button>
@@ -126,7 +203,7 @@
             }
             echo "</table>";
         } else {
-            echo "No records found for the provided contact number.";
+            echo "<div class='no-records'>No records found for the provided contact number.</div>";
         }
 
         // Close connection
@@ -135,7 +212,7 @@
     ?>
 </div>
 
-<footer class="footer">
+<footer>
     <p>&copy; 2024 Medagrama - All rights reserved</p>
 </footer>
 </body>

@@ -9,42 +9,56 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background: linear-gradient(to bottom, #4CAF50, #f2f2f2);
+            color: #333;
         }
+
         .header {
             background-color: #4CAF50;
             color: #ffffff;
             text-align: center;
             position: relative;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .home-button {
+
+        .home-button, .logout {
             position: absolute;
             top: 50%;
-            left: 20px;
             transform: translateY(-50%);
             color: #ffffff;
             text-decoration: none;
+            font-weight: bold;
         }
 
-        .header h1 {
-            margin: 0;
+        .home-button {
+            left: 20px;
         }
 
         .logout {
-            position: absolute;
-            top: 20px;
             right: 20px;
-            color: #ffffff;
-            text-decoration: none;
+        }
+
+        .home-button:hover, .logout:hover {
+            text-decoration: underline;
         }
 
         .container {
-            margin: 20px auto;
-            width: 80%;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 800px;
             background-color: #ffffff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         form {
@@ -53,13 +67,11 @@
             grid-gap: 20px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
         .form-group label {
             display: block;
+            font-size: 14px;
             font-weight: bold;
+            color: #555;
             margin-bottom: 5px;
         }
 
@@ -67,33 +79,48 @@
         .form-group input[type="number"],
         .form-group select,
         .form-group input[type="date"] {
-            width: calc(100% - 20px);
-            padding: 10px;
+            width: 100%;
+            padding: 12px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            box-sizing: border-box;
+            font-size: 14px;
         }
 
         .form-group button {
             background-color: #4CAF50;
             color: #ffffff;
             border: none;
-            padding: 10px 20px;
+            padding: 12px;
             cursor: pointer;
             border-radius: 5px;
-            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
 
         .form-group button:hover {
             background-color: #45a049;
         }
-        .footer {
+
+        footer {
             background-color: #4CAF50;
             color: #ffffff;
             text-align: center;
-            width: 100%;
+            padding: 10px 0;
             position: fixed;
             bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert-message {
+            background-color: #eafaf1;
+            color: #2e7d32;
+            border: 1px solid #81c784;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            display: none; /* Hidden by default; can be displayed dynamically via JavaScript */
         }
     </style>
 </head>
@@ -109,24 +136,25 @@
     <form action="#" method="POST">
         <div class="form-group">
             <label for="case_no">Case No.</label>
-            <input type="text" id="case_no" name="case_no" required>
+            <input type="text" id="case_no" name="case_no" placeholder="Enter case number" required>
         </div>
 
         <div class="form-group">
             <label for="firstname">First Name</label>
-            <input type="text" id="firstname" name="firstname" required>
+            <input type="text" id="firstname" name="firstname" placeholder="Enter first name" required>
         </div>
         <div class="form-group">
             <label for="middlename">Middle Name</label>
-            <input type="text" id="middlename" name="middlename">
+            <input type="text" id="middlename" name="middlename" placeholder="Enter middle name">
         </div>
         <div class="form-group">
             <label for="lastname">Last Name</label>
-            <input type="text" id="lastname" name="lastname" required>
+            <input type="text" id="lastname" name="lastname" placeholder="Enter last name" required>
         </div>
         <div class="form-group">
             <label for="gender">Gender</label>
             <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
@@ -134,11 +162,11 @@
         </div>
         <div class="form-group">
             <label for="age">Age</label>
-            <input type="number" id="age" name="age" required>
+            <input type="number" id="age" name="age" placeholder="Enter age" required>
         </div>
         <div class="form-group">
             <label for="contact_no">Contact No.</label>
-            <input type="text" id="contact_no" name="contact_no" required>
+            <input type="text" id="contact_no" name="contact_no" placeholder="Enter contact number" required>
         </div>
         <div class="form-group">
             <label for="date">Date</label>
@@ -149,7 +177,7 @@
         </div>
     </form>
 </div>
-<footer class="footer">
+<footer>
     <p>&copy; 2024 Medagrama - All rights reserved</p>
 </footer>
 
